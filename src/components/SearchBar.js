@@ -62,7 +62,14 @@ class SearchBar extends React.Component {
   }
 
   onKeyPress = (button) => {
-    if (button === "{shift}") this.handleShift();
+    if (button === "{shift}"){
+      this.handleShift();
+      return;
+    }
+
+    if (this.state.layoutName === "shift"){
+      this.setState({layoutName: "default"});
+    }
 
     if (button === "{lock}") this.handleCaps();
 
