@@ -1,7 +1,7 @@
 {
   "name": "brunel",
   "version": "0.1.0",
-  "homepage": "http://brunels-network.github.io/network/",
+  "homepage": "http://brunels-network.github.io/kiosk/",
   "private": true,
   "dependencies": {
     "d3": "^7.3.0",
