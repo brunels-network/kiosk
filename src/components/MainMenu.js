@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import VBox from "./VBox";
-import moment from "moment";
 
 import styles from "./MainMenu.module.css";
 

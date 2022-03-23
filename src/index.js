@@ -5,7 +5,6 @@ import Spinner from "react-spinkit";
 
 import "./reset.css";
 
-import "vis-network/dist/vis-network.min.css";
 import "./index.css";
 
 const SocialApp = lazy(() => import("./SocialApp.js"));
