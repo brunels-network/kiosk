@@ -2,7 +2,7 @@
   position: absolute;
   width: 98%;
   left: 1%;
-  bottom: 50px;
+  bottom: 20%;
   opacity: 1;
   background-color: transparent;
   z-index: 11;
@@ -26,7 +26,9 @@
   margin-right: auto;
   margin-top: 2px;
   margin-bottom: 2px;
-  max-width: 300px;
+  max-width: 50%;
   border-radius: 10px;
   text-align: center;
+  font-size: 32pt;
+  line-height: 46pt;
 }
