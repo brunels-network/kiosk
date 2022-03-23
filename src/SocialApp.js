@@ -597,7 +597,7 @@ class SocialApp extends React.Component {
 
   render() {
 
-    const timeout = 240;
+    const timeout = 60;
 
     if (this.state.showWelcomePage){
       return <WelcomePage emitCloseWelcome={()=>{this.slotCloseWelcome()}}
