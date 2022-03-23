@@ -597,7 +597,7 @@ class SocialApp extends React.Component {
 
   render() {
 
-    const timeout = 30;
+    const timeout = 240;
 
     if (this.state.showWelcomePage){
       return <WelcomePage emitCloseWelcome={()=>{this.slotCloseWelcome()}}
@@ -794,7 +794,7 @@ class SocialApp extends React.Component {
 
     let mainmenu = (
       <SlidingPanel isOpen={this.state.menuVisible}
-        position="left" height="100%" width="25%">
+        position="left" height="100%" width="10%">
         <MainMenu
           close={() => {
             this.slotCloseMenu();

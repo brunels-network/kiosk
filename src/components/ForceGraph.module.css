@@ -32,9 +32,7 @@
 }
 
 .node {
-    stroke: #373935;
     fill: #998554;
-    stroke-width: 1px;
 }
 
 .node_highlighted {
@@ -44,9 +42,7 @@
 }
 
 .node_engineer {
-    stroke: #373935;
     fill: #E63309;
-    stroke-width: 1px;
 }
 
 .node_engineer_highlighted {
@@ -56,9 +52,7 @@
 }
 
 .node_business {
-    stroke: #373935;
     fill: #373935;
-    stroke-width: 1px;
 }
 
 .node_business_highlighted {
@@ -69,8 +63,6 @@
 
 .node_nc_engineer {
     fill: #111111;
-    stroke: #373935;
-    stroke-width: 1px;
 }
 
 .node_nc_engineer_highlighted {
@@ -89,21 +81,21 @@
     /* Was white */
     stroke: #456991;
     stroke-width: 1px;
-    stroke-opacity: 60%;
+    stroke-opacity: 100%;
     fill: none;
 }
 
 .linkWeak {
     stroke: #324f6e;
     stroke-width: 1px;
-    stroke-opacity: 20%;
+    stroke-opacity: 100%;
     fill: none;
 }
 
 .linkIndirect {
     stroke: #b4b0b0;
     stroke-width: 1px;
-    stroke-opacity: 50%;
+    stroke-opacity: 100%;
     fill: none;
 }
 
@@ -115,14 +107,14 @@
 .linkWeak.highlight {
     stroke: #E63309;
     stroke-width: 1px;
-    stroke-opacity: 50%;
+    stroke-opacity: 100%;
     fill: none;
 }
 
 .linkIndirect.highlight {
     stroke: #E63309;
     stroke-width: 1px;
-    stroke-opacity: 50%;
+    stroke-opacity: 100%;
     fill: none;
 }
 
@@ -135,16 +127,15 @@
 
 .node_text {
     fill: #ccb885;
-    font-size: 16pt;
-    text-shadow: 2px 2px #000000;
+    font-size: 12pt;
     stroke-width: 0;
+    font-weight: 900;
 }
 
 .node_text_highlight {
     fill: #FFFFFF;
     stroke-width: 0;
-    text-shadow: 2px 2px #000000;
-    font-size: 18pt;
+    font-size: 14pt;
     font-weight: 900;
 }
 
@@ -152,7 +143,7 @@
     fill: #ffffff;
     text-shadow: 2px 2px #000000;
     stroke-width: 0;
-    font-size: 32pt;
+    font-size: 18pt;
     font-style: italic;
     font-weight: 900;
 }

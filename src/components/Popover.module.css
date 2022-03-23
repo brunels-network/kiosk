@@ -12,17 +12,19 @@
 }
 
 .header {
-  font-size: 32pt;
+  font-size: 20pt;
   font-family: "Domine";
   color: #373935;
+  font-weight: 900;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 10px;
+  padding-bottom: 0px;
 }
 
 .bio {
-  font-size: 24pt;
+  font-size: 14pt;
   font-family: "Domine";
   color: black;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 10px;
 }

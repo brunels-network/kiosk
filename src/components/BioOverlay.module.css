@@ -24,8 +24,8 @@
 }
 
 .image {
-  max-height: 40%;
-  max-width: 70%;
+  max-height: 400px;
+  max-width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -35,7 +35,7 @@
 }
 
 .image_credit {
-  font-size: 16pt;
+  font-size: 10pt;
   font-family: "Domine";
   display: block;
   margin-left: auto;
@@ -71,7 +71,7 @@
   margin-right: auto;
   margin-top: 2px;
   margin-bottom: 2px;
-  max-width: 90%;
+  max-width: 60%;
   border-radius: 10px;
 }
 
@@ -89,10 +89,10 @@
   margin-right: auto;
   margin-top: 2px;
   margin-bottom: 2px;
-  width: 90%;
+  width: 60%;
   border-radius: 10px;
   font-weight: 900;
-  font-size: 48pt;
+  font-size: 20pt;
 }
 
 .bio_heading {
@@ -103,7 +103,7 @@
   margin-right: auto;
   margin-top: 2px;
   margin-bottom: 2px;
-  font-size: 32pt;
+  font-size: 20pt;
   font-weight: 900;
   text-align: center;
   background-color: #E63309;
@@ -120,7 +120,7 @@
   margin-right: auto;
   margin-top: 2px;
   margin-bottom: 2px;
-  font-size: 32pt;
+  font-size: 20pt;
   font-weight: 900;
   text-align: center;
   background-color: #E63309;
@@ -140,8 +140,8 @@
   margin-bottom: 2px;
   background-color: white;
   word-break: break-word;
-  text-align: justify;
-  font-size: 24pt;
+  text-align: left;
+  font-size: 14pt;
   width: 100%;
 }
 
@@ -149,7 +149,7 @@
   font-family: "Domine";
   line-height: 1.5;
   word-break: break-word;
-  font-size: 16pt;
+  font-size: 10pt;
 }
 
 .source_name {
