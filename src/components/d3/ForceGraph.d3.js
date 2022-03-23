@@ -284,14 +284,6 @@ class ForceGraphD3 extends React.Component {
       .attr("r", (d) => {
         d.radius = 2.0 * Math.min(15, 5 + (0.5 * (d.size * d.size)));
 
-        if (d.size < 1.5) {
-          //d.radius = 3;
-        }
-        else if (d.size < 2.0) {
-          //d.radius = 6 + d.size;
-        } else {
-          //d.radius = 12 + 2 * d.size;
-        }
         return d.radius;
       })
       .attr("class", (d) => {
@@ -389,7 +381,7 @@ class ForceGraphD3 extends React.Component {
         return d.x;
       })
       .attr("y", (d) => {
-        return d.y + 0.6 * d.radius;
+        return d.y + 0.7 * d.radius;
       })
       .attr("dx", (d) => {
         return d.radius + "px";
