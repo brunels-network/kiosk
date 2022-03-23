@@ -351,25 +351,7 @@ class ForceGraphD3 extends React.Component {
     // Big weights make the size of circles too large
     const sizeScale = 0.5;
 
-    let use_initials = true;
-
-    //console.log(`${this.state.width} : ${data.length}`);
-
-    if (data.length < 10) {
-      use_initials = false;
-    }
-    else if (data.length < 25 && this.state.width > 500) {
-      use_initials = false;
-    }
-    else if (data.length < 40 && this.state.width > 768) {
-      use_initials = false;
-    }
-    else if (data.length < 45 && this.state.width > 1000) {
-      use_initials = false;
-    }
-    else if (data.length < 50 && this.state.width > 1200) {
-      use_initials = false;
-    }
+    let use_initials = false;
 
     text = text
       .data(data, (d) => d.id)
@@ -404,31 +386,10 @@ class ForceGraphD3 extends React.Component {
         }
       })
       .attr("x", (d) => {
-        if (!d.textSize) {
-          d.textSize = getTextSize(d);
-        }
-
-        let width = d.textSize[0];
-        let delta = 0.5 * width;
-
-        if (d.x + delta > window.innerWidth) {
-          return window.innerWidth - width - 20;
-        }
-        else if (d.x - delta < 5) {
-          return 5;
-        }
-        else {
-          return d.x - d.radius - delta;
-        }
+        return d.x;
       })
       .attr("y", (d) => {
-        if (!d.textSize) {
-          d.textSize = getTextSize(d);
-        }
-
-        let height = d.textSize[1];
-
-        return d.y + (0.55 * (height + d.radius));
+        return d.y + 0.6 * d.radius;
       })
       .attr("dx", (d) => {
         return d.radius + "px";
@@ -529,9 +490,9 @@ class ForceGraphD3 extends React.Component {
 
     let simulation = d3
       .forceSimulation(graph.nodes)
-      .alpha(0.1)
+      .alpha(0.2)
       .alphaTarget(0)
-      .alphaDecay(0.0075)
+      .alphaDecay(0.01)
       .force("spiral",
         force_spiral(w, h)
           .strength(0.3)
@@ -539,22 +500,13 @@ class ForceGraphD3 extends React.Component {
             return d.sort_index;
           })
       )
-      /*.force(
-        "collide",
-        d3
-        .forceCollide()
-        .strength(5.0)
-        .radius((d) => d.radius)
-        .iterations(20)
-      )*/
-      // This function with help from https://stackoverflow.com/a/13456081
       .on("tick", () => {
 
         let now = new Date();
 
         let delta = now - last_update;
 
-        if (delta < 50){
+        if (delta < 20){
           return;
         }
 
@@ -576,39 +528,18 @@ class ForceGraphD3 extends React.Component {
 
         this._node
           .attr("cx", (d) => {
-            return (d.x = constrain(d.x, w, d.r));
+            return d.x;
           })
           .attr("cy", (d) => {
-            return (d.y = constrain(d.y, h, d.r));
+            return d.y;
           });
 
         this._label
           .attr("x", (d) => {
-            if (!d.textSize) {
-              d.textSize = getTextSize(d);
-            }
-
-            let width = d.textSize[0];
-            let delta = 0.5 * width;
-
-            if (d.x + delta > window.innerWidth) {
-              return window.innerWidth - width - 20;
-            }
-            else if (d.x - delta < 5) {
-              return 5;
-            }
-            else {
-              return d.x - d.radius - delta;
-            }
+            return d.x;
           })
           .attr("y", (d) => {
-            if (!d.textSize) {
-              d.textSize = getTextSize(d);
-            }
-
-            let height = d.textSize[1];
-
-            return d.y + (0.55 * (height + d.radius));
+            return d.y + 0.7 * d.radius;
           });
 
       })

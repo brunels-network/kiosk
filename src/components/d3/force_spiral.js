@@ -19,6 +19,8 @@ function _return_index() {
   }
 }
 
+let last_update = null;
+
 /** Force function that pulls nodes towards a spiral design that
  *  is centered in a canvas of specified width and height. You can
  *  specify the strength of this force, and also the index that
@@ -46,6 +48,18 @@ export default function force_spiral(width, height) {
    */
   function force(alpha) {
     if (!nodes) return;
+
+    if (last_update === null){
+        last_update = new Date();
+    }
+
+    let now = new Date();
+
+    if (now - last_update < 20){
+        return;
+    }
+
+    last_update = now;
 
     for (let i = 0, n = nodes.length; i < n; ++i) {
       let node = nodes[i];
