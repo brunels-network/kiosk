@@ -125,9 +125,12 @@ Next, create a file `~/run_kiosk.sh` and copy into it
 xset -dpms     # disable DPMS (Energy Star) features.
 xset s off     # disable screen saver
 xset s noblank # don't blank the video device
+xrandr -s 1920x1080  # set to Full HD resolution
 matchbox-window-manager -use_titlebar no &
-unclutter &    # hide X mouse cursor unless mouse activated
-chromium-browser --display=:0 --kiosk --incognito --window-position=0,0 http://localhost
+unclutter -idle 0.5 -root &    # hide X mouse cursor unless mouse activated
+sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromium/Default/Preferences
+sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
+chromium-browser --display=:0 --noerrdialogs --disable-infobars --kiosk --incognito --window-position=0,0 http://localhost
 ```
 
 (thanks to [this blog post](https://reelyactive.github.io/diy/pi-kiosk/) for these instructions)
@@ -149,6 +152,14 @@ xinit /home/pi/run_kiosk.sh -- vt$(fgconsole)
 
 Reboot your Pi. It should (hopefully) start in kiosk mode.
 
+## Accessing the kiosk
+
+You can access a login terminal by pressing `CTRL+ALT+F2` when in kiosk
+mode. Log in using the username (`pi`) and password (`whatever you set`).
+If you need to make any changes, you can disable the kiosk mode
+by commenting out the `xinit` line in your `.bashrc` and using
+`sudo raspi-config` to switch back to an auto-login desktop login.
+
 ## Securing the kiosk
 
 This will be a standalone kiosk. To keep it secure we need to disable
@@ -163,6 +174,3 @@ should add some resilience to the kiosk, reducing the risk of
 breakage when the power is switched off, and also reducing the risk
 of someone accidentally (or purposefully) making changes to the
 configuration.
-
-
-
