@@ -163,7 +163,63 @@ by commenting out the `xinit` line in your `.bashrc` and using
 ## Securing the kiosk
 
 This will be a standalone kiosk. To keep it secure we need to disable
-all network and all bluetooth access.
+all network and all bluetooth access, plus ensure that `sudo` requires
+a password.
+
+To require sudo to use a password (indeed to use the root password)
+first set a root password by typing
+
+```
+$ sudo passwd
+```
+
+and entering the password that you want.
+
+Next, edit `/etc/sudoers.d/010_pi-nopasswd` and edit the line to read
+
+```
+pi ALL=(ALL) ALL
+```
+
+To disable bluetooth, edit `/boot/config.txt` and add the line
+
+```
+# Disable Bluetooth
+dtoverlay=disable-bt
+```
+
+Next, disable all bluetooth-related services
+
+```
+$ sudo systemctl disable hciuart
+$ sudo systemctl disable hciuart.service
+$ sudo systemctl disable bluealsa.service
+$ sudo systemctl disable bluetooth.service
+```
+
+Finally, remove all bluetooth-related packages
+
+```
+$ sudo apt-get purge bluez -y
+$ sudo apt-get autoremove -y
+```
+
+Reboot to check that the changes were made ok.
+
+Next, we want to disable wifi. We will do this using
+`rfkill`. To block wifi type
+
+```
+$ sudo rfkill block wifi
+```
+
+You can unblock wifi again (if you need to) by typing
+
+```
+$ sudo rfkill unblock wifi
+```
+
+This should be persistent across reboots.
 
 ## Turning on overlayfs
 
@@ -174,3 +230,44 @@ should add some resilience to the kiosk, reducing the risk of
 breakage when the power is switched off, and also reducing the risk
 of someone accidentally (or purposefully) making changes to the
 configuration.
+
+First, let's disable swap
+
+```
+$ sudo dphys-swapfile swapoff
+$ sudo dphys-swapfile uninstall
+$ sudo systemctl disable dphys-swapfile
+```
+
+Next, we want to replace the file-based syslog with a memory
+ring-buffer logger, like the one provided by 
+busybox-syslogd. Just install this - it will automatically
+replace rsyslog :-)
+
+```
+$ sudo apt-get install busybox-syslogd
+```
+
+You can read the logs by running
+
+```
+$ logread
+```
+
+(or `logread -f` to read the data as it arrives)
+
+We can also reduce the verbosity of `cron` by logging only
+errors. To do this, we edit `/etc/default/cron` and
+add
+
+```
+EXTRA_OPTS="-L 4"
+```
+
+Finally, we enable overlayfs by selecting the option in 
+`raspi-config`, e.g. via `sudo raspi-config`.
+
+It is under "Performance Options" then "Overlay File System".
+Switch it on, and also switch on Boot Volume write protection.
+
+Reboot, and you should now have your safe and secure kiosk :-)
