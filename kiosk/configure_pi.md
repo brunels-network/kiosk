@@ -88,13 +88,13 @@ root /home/pi/kiosk/build
 Test the configuration using
 
 ```
-sudo nginx -t
+$ sudo nginx -t
 ```
 
 If it is ok, then ask nginx to load this configuration using
 
 ```
-sudo nginx -s reload
+$ sudo nginx -s reload
 ```
 
 Now navigate to `http://localhost` in chromium and check that the 
@@ -102,7 +102,52 @@ application loads and runs correctly.
 
 ## Starting chromium on boot
 
+First, install unclutter, to hide the mouse pointer
 
+```
+$ sudo apt-get install unclutter
+```
+
+Next, install a simple window manager
+
+```
+$ sudo apt-get install matchbox-window-manager xautomation
+```
+
+Now, configure the boot options. Start the Raspberry Pi Configuration
+GUI and set `Boot` to `To CLI`. Then make sure that 
+`Auto Login` is turned on. 
+
+Next, create a file `~/run_kiosk.sh` and copy into it
+
+```
+#!/bin/sh
+xset -dpms     # disable DPMS (Energy Star) features.
+xset s off     # disable screen saver
+xset s noblank # don't blank the video device
+matchbox-window-manager -use_titlebar no &
+unclutter &    # hide X mouse cursor unless mouse activated
+chromium-browser --display=:0 --kiosk --incognito --window-position=0,0 http://localhost
+```
+
+(thanks to [this blog post](https://reelyactive.github.io/diy/pi-kiosk/) for these instructions)
+
+Make this script executable 
+
+```
+$ chmod 755 ~/run_kiosk.sh
+```
+
+Now add this script to the `.bashrc` file, so that it will be 
+called on login. Add this line to `.bashrc`.
+
+```
+xinit /home/pi/run_kiosk.sh -- vt$(fgconsole)
+```
+
+(I put this at the end of the file)
+
+Reboot your Pi. It should (hopefully) start in kiosk mode.
 
 ## Securing the kiosk
 
