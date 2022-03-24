@@ -176,15 +176,23 @@ class SearchBar extends React.Component {
       };
 
       keyboard = (
-        <div className={styles.keyboardHolder}>
-          <Keyboard
-            input={search_text}
-            keyboardRef={r => (this.keyboard = r)}
-            layoutName={this.state.layoutName}
-            className={styles.keyboard}
-            onChange={this.onChange}
-            onKeyPress={this.onKeyPress}
-            layout={layout}/>
+        <div className={styles.clearKeyboard}
+             onClick={()=>{
+               this.setState({showKeyboard: false});
+        }}>
+          <div className={styles.keyboardHolder}
+               onClick={(e)=>{
+                e.stopPropagation();
+               }}>
+            <Keyboard
+              input={search_text}
+              keyboardRef={(r) => {this.keyboard = r; this.keyboard.setInput(search_text)}}
+              layoutName={this.state.layoutName}
+              className={styles.keyboard}
+              onChange={this.onChange}
+              onKeyPress={this.onKeyPress}
+              layout={layout}/>
+          </div>
         </div>
       );
     }
@@ -196,7 +204,6 @@ class SearchBar extends React.Component {
           <BigBox>
             <input key="input" className={styles.input} type="search"
               onClick={()=>{
-                this.props.emitUpdate("");
                 this.setState({showKeyboard: true});
               }}
               onChange={(e) => this.onChangeHandler(e)}

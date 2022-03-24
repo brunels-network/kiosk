@@ -72,6 +72,15 @@
   opacity: 90%;
 }
 
+.clearKeyboard {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9;
+}
+
 .keyboard {
   height: 100%;
   width: 100%;
