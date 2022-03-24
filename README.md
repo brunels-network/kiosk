@@ -5,13 +5,13 @@ This branch is used to build the kiosk display.
 
 This project uses data taken from correspondence between those involveed in the construction of the three great steam ships to create a historical social network with Isambard Kingdom Brunel at its centre. Using a d3-force graph this social network can be visualised and connections between the people involved in the construction can be examined. Biographies of those involved in the construction are available to read along with the sources in which the connections between individuals and companies were found.
 
-To use the network please visit [https://brunels-network.github.io/network/](https://brunels-network.github.io/network/)
+To use the network please visit [https://brunels-network.github.io/kiosk/](https://brunels-network.github.io/kiosk/)
 
 ## Run
 
 To run this software locally you'll need to [install npm](https://www.npmjs.com/get-npm) and then clone this repository
 
-`git clone https://github.com/brunels-network/network.git`
+`git clone https://github.com/brunels-network/kiosk.git`
 
 Move into the `network` directory and run
 
@@ -21,7 +21,7 @@ This will download the libraries the network requires to run. Once this has comp
 
 `npm start`
 
-This will open the network in your default browser and you can use this as you would at [https://brunels-network.github.io/network/](https://brunels-network.github.io/network/).
+This will open the network in your default browser and you can use this as you would at [https://brunels-network.github.io/kiosk/](https://brunels-network.github.io/kiosk/).
 
 ## Updating the network
 
