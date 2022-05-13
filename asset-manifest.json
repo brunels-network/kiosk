@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/kiosk/static/css/main.53a923ef.css",
-    "main.js": "/kiosk/static/js/main.271f17c2.js",
-    "static/css/766.c8a2c76a.chunk.css": "/kiosk/static/css/766.c8a2c76a.chunk.css",
-    "static/js/766.92cda80d.chunk.js": "/kiosk/static/js/766.92cda80d.chunk.js",
+    "main.js": "/kiosk/static/js/main.40a17424.js",
+    "static/css/766.af248680.chunk.css": "/kiosk/static/css/766.af248680.chunk.css",
+    "static/js/766.76af8ab1.chunk.js": "/kiosk/static/js/766.76af8ab1.chunk.js",
     "static/js/64.80fa8d65.chunk.js": "/kiosk/static/js/64.80fa8d65.chunk.js",
     "static/media/William_Patterson.jpg": "/kiosk/static/media/William_Patterson.82ac05723e0a6d834d2e.jpg",
     "static/media/Thomas_Guppy.jpg": "/kiosk/static/media/Thomas_Guppy.e624b1057547d83e5ffa.jpg",
@@ -31,13 +31,13 @@
     "static/media/help_text.md": "/kiosk/static/media/help_text.802776a21fc6a9691393.md",
     "index.html": "/kiosk/index.html",
     "main.53a923ef.css.map": "/kiosk/static/css/main.53a923ef.css.map",
-    "main.271f17c2.js.map": "/kiosk/static/js/main.271f17c2.js.map",
-    "766.c8a2c76a.chunk.css.map": "/kiosk/static/css/766.c8a2c76a.chunk.css.map",
-    "766.92cda80d.chunk.js.map": "/kiosk/static/js/766.92cda80d.chunk.js.map",
+    "main.40a17424.js.map": "/kiosk/static/js/main.40a17424.js.map",
+    "766.af248680.chunk.css.map": "/kiosk/static/css/766.af248680.chunk.css.map",
+    "766.76af8ab1.chunk.js.map": "/kiosk/static/js/766.76af8ab1.chunk.js.map",
     "64.80fa8d65.chunk.js.map": "/kiosk/static/js/64.80fa8d65.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.53a923ef.css",
-    "static/js/main.271f17c2.js"
+    "static/js/main.40a17424.js"
   ]
 }
