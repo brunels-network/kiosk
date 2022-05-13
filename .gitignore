@@ -13,3 +13,4 @@ python/.ipynb_checkpoints
 rawdata/*
 
 .pytest_cache
+.DS_Store

@@ -26,11 +26,16 @@ function WelcomePage(props){
   } else {
     let filename = "images/welcome/welcome1.png";
 
+    // show the screensaver after 10 minutes
+
     return (
       <div className={styles.ui_main}
            onClick={()=>{setShowSecond(true)}}>
-      <img className={styles.image} data-testid="bioImage"
-           src={require(`../${filename}`)} alt="Welcome 1 page" />
+        <img className={styles.image} data-testid="bioImage"
+            src={require(`../${filename}`)} alt="Welcome 1 page" />
+        <Timeout last_interaction_time={new Date()}
+                 timeout={600}
+                 emitReload={props.emitScreenSaver}/>
       </div>
     );
   }

@@ -12,11 +12,9 @@ import Overlay from "./components/Overlay";
 import SearchBar from "./components/SearchBar";
 import BioOverlay from "./components/BioOverlay";
 import ShipOverlay from "./components/ShipOverlay";
-import SlidingPanel from "./components/SlidingPanel";
-import MainMenu from "./components/MainMenu";
-import WarningOverlay from "./components/WarningOverlay";
 import Timeout from "./components/Timeout";
 import WelcomePage from "./components/WelcomePage";
+import ScreenSaver from "./components/ScreenSaver";
 
 import HBox from "./components/HBox";
 import VBox from "./components/VBox";
@@ -80,7 +78,8 @@ class SocialApp extends React.Component {
       height: 0,
       width: 0,
       warningVisible: true,
-      showWelcomePage: true
+      showWelcomePage: true,
+      showScreenSaver: false
     };
 
     Object.keys(imageData).forEach((key) => {
@@ -597,21 +596,28 @@ class SocialApp extends React.Component {
 
   render() {
 
-    const timeout = 60;
+    const timeout = 90;
+
+    if (this.state.showScreenSaver){
+      return <ScreenSaver emitReload={()=>{this.resetAll()}}
+                          emitScreenSaver={()=>this.setState({showScreenSaver: this.state.showScreenSaver+1})}
+                          seed={this.state.showScreenSaver}/>;
+    }
 
     if (this.state.showWelcomePage){
       return <WelcomePage emitCloseWelcome={()=>{this.slotCloseWelcome()}}
                           timeout={timeout}
-                          emitReload={()=>{this.resetAll()}}/>
+                          emitScreenSaver={()=>this.setState({showScreenSaver: 1})}
+                          emitReload={()=>{this.resetAll()}}/>;
     }
 
     let menu = (
       <TextButton
         onClick={() => {
-          this.slotShowMenu();
+          this.resetAll();
         }}
       >
-        Options
+        Reload
       </TextButton>
     );
 
@@ -792,61 +798,11 @@ class SocialApp extends React.Component {
       right_side = size_button;
     }
 
-    let mainmenu = (
-      <SlidingPanel isOpen={this.state.menuVisible}
-        position="left" height="100%" width="10%">
-        <MainMenu
-          close={() => {
-            this.slotCloseMenu();
-          }}
-          spiralOrder={this.state.spiralOrder}
-          filterText={filter_text}
-          sizeText={this.state.nodeSize}
-          searchText={search_text}
-
-          unconnectedNodesVisible={!this.state.filterUnconnectedNodes}
-          ncEngineersVisible={!this.state.filterNCEngineers}
-          engineersFiltered={this.state.engineersFiltered}
-          commercialFiltered={this.state.commercialFiltered}
-          searchHighlight={this.state.searchHighlightLinks}
-          searchBios={this.state.searchIncludeBios}
-          emitReload={() => {
-            this.resetAll();
-          }}
-          emitToggleSpiralOrder={() => this.toggleSpiralOrder()}
-          emitToggleFilter={() => this.toggleEngCommFilter()}
-          emitToggleNodeSize={() => this.toggleNodeSize()}
-          emitToggleSearch={toggle_search}
-
-          emitToggleFilterCommercial={() => this.slotToggleFilterCommercial()}
-          emitToggleFilterEngineering={() => this.slotToggleFilterEngineer()}
-          emitToggleUnconnectedNodesVisible={() => this.slotToggleUnconnectedNodes()}
-          emitToggleNCEngineersVisible={() => this.slotToggleNonContributingEngineers()}
-          emitSearchHighlightToggled={() => this.slotSearchHighlightToggled(!this.state.searchHighlightLinks)}
-          emitSearchBiosToggled={() => this.slotSearchBiosToggled(!this.state.searchIncludeBios)}
-        />
-      </SlidingPanel>
-    );
-
     // make sure that we don't have too many nodes...
     let nnodes = this.state.social.getGraph().nodes.length;
 
-    let warning_popover = null;
-
-    if (this.state.warningVisible && nnodes > 50) {
-      warning_popover = (
-        <Overlay useBackground={false} toggleOverlay={() => { this.slotCloseWarning() }}>
-        <WarningOverlay close={() => { this.slotCloseWarning() }}>
-            As you can see, this is a busy network. Using filters will allow you
-            to examine the network more closely.
-        </WarningOverlay>
-          </Overlay>
-      );
-    }
-
     return (
       <div>
-        {mainmenu}
         <div className={styles.ui_main}>
           <VBox>
             <HBox>
@@ -867,7 +823,6 @@ class SocialApp extends React.Component {
           </VBox>
         </div>
         {overlay}
-        {warning_popover}
         <Timeout last_interaction_time={new Date()}
                  timeout={timeout}
                  emitReload={()=>{this.resetAll()}}/>
