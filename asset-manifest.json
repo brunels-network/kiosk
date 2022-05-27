@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/kiosk/static/css/main.53a923ef.css",
-    "main.js": "/kiosk/static/js/main.40a17424.js",
+    "main.js": "/kiosk/static/js/main.5f0b8712.js",
     "static/css/766.af248680.chunk.css": "/kiosk/static/css/766.af248680.chunk.css",
-    "static/js/766.76af8ab1.chunk.js": "/kiosk/static/js/766.76af8ab1.chunk.js",
+    "static/js/766.30bd8bc2.chunk.js": "/kiosk/static/js/766.30bd8bc2.chunk.js",
     "static/js/64.80fa8d65.chunk.js": "/kiosk/static/js/64.80fa8d65.chunk.js",
     "static/media/William_Patterson.jpg": "/kiosk/static/media/William_Patterson.82ac05723e0a6d834d2e.jpg",
     "static/media/Thomas_Guppy.jpg": "/kiosk/static/media/Thomas_Guppy.e624b1057547d83e5ffa.jpg",
@@ -14,11 +14,11 @@
     "static/media/William_Fairbairn.jpg": "/kiosk/static/media/William_Fairbairn.e6f10c8f370bb29b5fde.jpg",
     "static/media/William_Symonds.jpg": "/kiosk/static/media/William_Symonds.79bd446655f81316caa1.jpg",
     "static/media/Bryan_Donkin.jpg": "/kiosk/static/media/Bryan_Donkin.25c3878072c4ef026af3.jpg",
-    "static/media/welcome2.png": "/kiosk/static/media/welcome2.3f69d458d69437e47176.png",
     "static/media/John_Scott.jpg": "/kiosk/static/media/John_Scott.8cd77bef401fa835b2cb.jpg",
     "static/media/Brunel.jpg": "/kiosk/static/media/Brunel.6f77386c70d828ac692a.jpg",
+    "static/media/welcome2.png": "/kiosk/static/media/welcome2.8356dc208d1516747202.png",
     "static/media/Samuel_Hall.jpg": "/kiosk/static/media/Samuel_Hall.55894cb7f60f5ec777cd.jpg",
-    "static/media/welcome1.png": "/kiosk/static/media/welcome1.7835f77e617f641a2d06.png",
+    "static/media/welcome1.png": "/kiosk/static/media/welcome1.7c05b2ccd543603cbcab.png",
     "static/media/Great_Western.jpg": "/kiosk/static/media/Great_Western.c44f8003b5415acbd2fe.jpg",
     "static/media/John_Grantham.jpg": "/kiosk/static/media/John_Grantham.7a2bf155d4126a74ce2f.jpg",
     "static/media/Edward_Chappel.jpg": "/kiosk/static/media/Edward_Chappel.ea6892a86d6b28f136eb.jpg",
@@ -31,13 +31,13 @@
     "static/media/help_text.md": "/kiosk/static/media/help_text.802776a21fc6a9691393.md",
     "index.html": "/kiosk/index.html",
     "main.53a923ef.css.map": "/kiosk/static/css/main.53a923ef.css.map",
-    "main.40a17424.js.map": "/kiosk/static/js/main.40a17424.js.map",
+    "main.5f0b8712.js.map": "/kiosk/static/js/main.5f0b8712.js.map",
     "766.af248680.chunk.css.map": "/kiosk/static/css/766.af248680.chunk.css.map",
-    "766.76af8ab1.chunk.js.map": "/kiosk/static/js/766.76af8ab1.chunk.js.map",
+    "766.30bd8bc2.chunk.js.map": "/kiosk/static/js/766.30bd8bc2.chunk.js.map",
     "64.80fa8d65.chunk.js.map": "/kiosk/static/js/64.80fa8d65.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.53a923ef.css",
-    "static/js/main.40a17424.js"
+    "static/js/main.5f0b8712.js"
   ]
 }
